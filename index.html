@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Put your description here.">
+  <base href="/">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #ededed;
+    }
+
+    #dialog {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+  <title>changelog-update-pattern</title>
+</head>
+
+<body>
+  <changelog-update-pattern></changelog-update-pattern>
+
+  <script type="module" src="./src/changelog-update-pattern.js"></script>
+  <script>
+    let refreshing;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshing) return;
+      window.location.reload();
+      refreshing = true;
+    });
+  </script>
+</body>
+
+</html>
